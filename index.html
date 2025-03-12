@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bartender-GPT - Your Cocktail Companion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #333;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+        background: #f4f4f4;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0.75rem 2rem;
+        transition: background 0.3s ease;
+      }
+      header:hover {
+        background: rgba(255, 255, 255, 1);
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #764ba2;
+        letter-spacing: 1px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+      nav ul li a {
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background: #764ba2;
+        left: 0;
+        bottom: -4px;
+        transition: width 0.3s ease;
+      }
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 2rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        animation: gradientAnimation 10s ease infinite;
+      }
+      @keyframes gradientAnimation {
+        0% {
+          background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        50% {
+          background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+        100% {
+          background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+      }
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 2s ease-out;
+      }
+      .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 2.5s ease-out;
+      }
+      .cta {
+        background: #fff;
+        color: #764ba2;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background 0.3s ease, transform 0.3s ease;
+        animation: fadeIn 3s ease-out;
+      }
+      .cta:hover {
+        background: #f0f0f0;
+        transform: scale(1.05);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Section Styles */
+      section {
+        padding: 6rem 2rem 4rem;
+        text-align: center;
+      }
+      section h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        color: #764ba2;
+      }
+      /* Feature Cards */
+      .feature-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        max-width: 300px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      }
+      /* Download Section (App Icon as Download Button) */
+      .logo-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fadeIn 2s ease-out;
+      }
+      .logo-icon a {
+        display: inline-block;
+      }
+      .logo-icon .app-icon {
+        width: 150px;
+        height: 150px;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+      .logo-icon .app-icon:hover {
+        transform: scale(1.05);
+      }
+      .logo-icon .app-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* Footer */
+      footer {
+        background: #333;
+        color: #fff;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .hero-content h1 {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Bartender-GPT</div>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Bartender-GPT</h1>
+        <p>Mixing history and cocktails since 2025</p>
+        <a href="#download" class="cta">Get It on the App Store</a>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Features</h2>
+      <div class="feature-cards">
+        <div class="card">
+          <h3>Discover Cocktails</h3>
+          <p>
+            Find the perfect cocktail based on your liquor cabinet and mixers.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Interactive Experience</h3>
+          <p>
+            Enjoy a sleek interface with fun facts and real-time feedback.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Personalized Picks</h3>
+          <p>
+            Our smart algorithm suggests cocktails that match your available
+            ingredients.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <h2>Download Bartender-GPT</h2>
+      <div class="logo-icon">
+        <a href="https://testflight.apple.com/join/WgFSfyzC" target="_blank">
+          <div class="app-icon">
+            <img src="icon.jpg" alt="Bartender-GPT App Icon" />
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Bartender-GPT. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Fallback smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
