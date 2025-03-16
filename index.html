@@ -75,6 +75,7 @@
       nav ul li a:hover::after {
         width: 100%;
       }
+
       /* Hero Section */
       .hero {
         height: 100vh;
@@ -86,6 +87,8 @@
         padding: 0 2rem;
         background: linear-gradient(135deg, #667eea, #764ba2);
         animation: gradientAnimation 10s ease infinite;
+        margin-bottom: 4rem; /* Added space below hero */
+        position: relative;
       }
       @keyframes gradientAnimation {
         0% {
@@ -97,6 +100,11 @@
         100% {
           background: linear-gradient(135deg, #667eea, #764ba2);
         }
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .hero-content h1 {
         font-size: 4rem;
@@ -123,6 +131,15 @@
         background: #f0f0f0;
         transform: scale(1.05);
       }
+      /* Additional CTA for Donate in Hero */
+      .cta-donate {
+        margin-top: 1rem; /* space between the two buttons */
+        background: #764ba2;
+        color: #fff;
+      }
+      .cta-donate:hover {
+        background: #5a3792;
+      }
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -133,16 +150,19 @@
           transform: translateY(0);
         }
       }
+
       /* Section Styles */
       section {
-        padding: 6rem 2rem 4rem;
+        width: 100%;
         text-align: center;
+        padding: 2rem;
       }
       section h2 {
         font-size: 2.8rem;
         margin-bottom: 1.5rem;
         color: #764ba2;
       }
+
       /* Feature Cards */
       .feature-cards {
         display: flex;
@@ -163,6 +183,7 @@
         transform: translateY(-5px);
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
       }
+
       /* Download Section (App Icon as Download Button) */
       .logo-icon {
         display: flex;
@@ -189,14 +210,41 @@
         height: 100%;
         object-fit: cover;
       }
+
+      /* Donation Section */
+      #donate {
+        background: #fff;
+        padding: 6rem 2rem 4rem; /* Extra top padding for spacing */
+        margin-top: 2rem;
+      }
+      #donate p {
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        line-height: 1.4;
+      }
+      .donate-btn {
+        background: #764ba2;
+        color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background 0.3s ease, transform 0.3s ease;
+        text-transform: uppercase;
+      }
+      .donate-btn:hover {
+        background: #5a3792;
+        transform: scale(1.05);
+      }
+
       /* Footer */
       footer {
         background: #333;
         color: #fff;
-        padding: 1rem 2rem;
+        padding: 2rem;
         text-align: center;
         font-size: 0.9rem;
       }
+
       /* Responsive Styles */
       @media (max-width: 768px) {
         nav ul {
@@ -216,6 +264,7 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#download">Download</a></li>
+          <li><a href="#donate">Donate</a></li>
         </ul>
       </nav>
     </header>
@@ -224,7 +273,16 @@
       <div class="hero-content">
         <h1>Bartender-GPT</h1>
         <p>Mixing history and cocktails since 2025</p>
+        <!-- Existing "Get It on the App Store" CTA -->
         <a href="#download" class="cta">Get It on the App Store</a>
+        <!-- New "Donate via PayPal" CTA in the hero -->
+        <a
+          href="https://www.paypal.com/donate/?hosted_button_id=7XKK6Y8LYT4EQ"
+          target="_blank"
+          class="cta cta-donate"
+        >
+          Donate via PayPal
+        </a>
       </div>
     </section>
 
@@ -256,12 +314,27 @@
     <section id="download">
       <h2>Download Bartender-GPT</h2>
       <div class="logo-icon">
-        <a href="https://testflight.apple.com/join/WgFSfyzC" target="_blank">
+        <a href="https://apps.apple.com/us/app/bartender-gpt/id6743064352" target="_blank">
           <div class="app-icon">
             <img src="icon.jpg" alt="Bartender-GPT App Icon" />
           </div>
         </a>
       </div>
+    </section>
+
+    <section id="donate">
+      <h2>Support Our Work</h2>
+      <p>
+        Your contributions help us keep Bartender-GPT running and bring you new
+        features!
+      </p>
+      <a
+        href="https://www.paypal.com/donate/?hosted_button_id=7XKK6Y8LYT4EQ"
+        target="_blank"
+        class="donate-btn"
+      >
+        Donate via PayPal
+      </a>
     </section>
 
     <footer>
