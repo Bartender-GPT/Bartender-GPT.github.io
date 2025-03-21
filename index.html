@@ -86,6 +86,8 @@
         padding: 0 2rem;
         background: linear-gradient(135deg, #667eea, #764ba2);
         animation: gradientAnimation 10s ease infinite;
+        margin-bottom: 4rem;
+        position: relative;
       }
       @keyframes gradientAnimation {
         0% {
@@ -97,6 +99,11 @@
         100% {
           background: linear-gradient(135deg, #667eea, #764ba2);
         }
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .hero-content h1 {
         font-size: 4rem;
@@ -123,6 +130,15 @@
         background: #f0f0f0;
         transform: scale(1.05);
       }
+      /* Additional CTA for Donate in Hero */
+      .cta-donate {
+        margin-top: 1rem;
+        background: #764ba2;
+        color: #fff;
+      }
+      .cta-donate:hover {
+        background: #5a3792;
+      }
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -135,8 +151,9 @@
       }
       /* Section Styles */
       section {
-        padding: 6rem 2rem 4rem;
+        width: 100%;
         text-align: center;
+        padding: 2rem;
       }
       section h2 {
         font-size: 2.8rem;
@@ -189,11 +206,80 @@
         height: 100%;
         object-fit: cover;
       }
+      /* Donation Section */
+      #donate {
+        background: #fff;
+        padding: 6rem 2rem 4rem;
+        margin-top: 2rem;
+      }
+      #donate p {
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        line-height: 1.4;
+      }
+      .donate-btn {
+        background: #764ba2;
+        color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background 0.3s ease, transform 0.3s ease;
+        text-transform: uppercase;
+      }
+      .donate-btn:hover {
+        background: #5a3792;
+        transform: scale(1.05);
+      }
+      /* Contributors Section */
+      #contributors {
+        background: #f9f9f9;
+        padding: 6rem 2rem 4rem;
+        margin-top: 2rem;
+      }
+      #contributors p {
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        line-height: 1.4;
+      }
+      .contributors-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .contributor {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        width: 280px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .contributor-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .contributor-info {
+        text-align: left;
+      }
+      .contributor-info strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .contributor-info p {
+        font-size: 0.9rem;
+        color: #555;
+      }
       /* Footer */
       footer {
         background: #333;
         color: #fff;
-        padding: 1rem 2rem;
+        padding: 2rem;
         text-align: center;
         font-size: 0.9rem;
       }
@@ -206,6 +292,10 @@
         .hero-content h1 {
           font-size: 3rem;
         }
+        .contributor {
+          width: 100%;
+          max-width: 300px;
+        }
       }
     </style>
   </head>
@@ -216,6 +306,8 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#download">Download</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#contributors">Contributors</a></li>
         </ul>
       </nav>
     </header>
@@ -225,6 +317,13 @@
         <h1>Bartender-GPT</h1>
         <p>Mixing history and cocktails since 2025</p>
         <a href="#download" class="cta">Get It on the App Store</a>
+        <a
+          href="https://www.paypal.com/donate/?hosted_button_id=7XKK6Y8LYT4EQ"
+          target="_blank"
+          class="cta cta-donate"
+        >
+          Donate via PayPal
+        </a>
       </div>
     </section>
 
@@ -256,11 +355,70 @@
     <section id="download">
       <h2>Download Bartender-GPT</h2>
       <div class="logo-icon">
-        <a href="https://testflight.apple.com/join/WgFSfyzC" target="_blank">
+        <a href="https://apps.apple.com/us/app/bartender-gpt/id6743064352" target="_blank">
           <div class="app-icon">
             <img src="barFinal.jpg" alt="Bartender-GPT App Icon" />
           </div>
         </a>
+      </div>
+    </section>
+
+    <section id="donate">
+      <h2>Support Our Work</h2>
+      <p>
+        Your contributions help us keep Bartender-GPT running and bring you new
+        features!
+      </p>
+      <a
+        href="https://www.paypal.com/donate/?hosted_button_id=7XKK6Y8LYT4EQ"
+        target="_blank"
+        class="donate-btn"
+      >
+        Donate via PayPal
+      </a>
+    </section>
+
+    <section id="contributors">
+      <h2>Contributors</h2>
+      <p>
+        We’d like to thank the following individuals for their contributions to Bartender-GPT:
+      </p>
+      <div class="contributors-container">
+        <div class="contributor">
+          <img src="icon.jpg" alt="Jason Dank" class="contributor-photo" />
+          <div class="contributor-info">
+            <strong>Jason Dank</strong>
+            <p>Creator & Full Stack Software Developer</p>
+          </div>
+        </div>
+        <div class="contributor">
+          <img src="icon.jpg" alt="Victoria Bumberova" class="contributor-photo" />
+          <div class="contributor-info">
+            <strong>Victoria Bumberova</strong>
+            <p>Logo Designer & Original Beta Tester</p>
+          </div>
+        </div>
+        <div class="contributor">
+          <img src="icon.jpg" alt="Ryan Matheson" class="contributor-photo" />
+          <div class="contributor-info">
+            <strong>Ryan Matheson</strong>
+            <p>Idea Man & Original Beta Tester</p>
+          </div>
+        </div>
+        <div class="contributor">
+          <img src="icon.jpg" alt="Ben Conte" class="contributor-photo" />
+          <div class="contributor-info">
+            <strong>Ben Conte</strong>
+            <p>Original Beta Tester</p>
+          </div>
+        </div>
+        <div class="contributor">
+          <img src="icon.jpg" alt="Murselle Azadzoi" class="contributor-photo" />
+          <div class="contributor-info">
+            <strong>Murselle Azadzoi</strong>
+            <p>Marketing Director & Original Beta Tester</p>
+          </div>
+        </div>
       </div>
     </section>
 
